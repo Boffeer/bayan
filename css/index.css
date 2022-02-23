@@ -1,0 +1,237 @@
+@font-face {
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.woff") format("woff");
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --c-accent: #ffb75e;
+  --c-text-regular: #0f0f0f;
+  --c-text-second: #444;
+  --fz-regular: 18px;
+  --fz-title-section: 44px;
+  --z-dropdown: 10;
+  --z-tooltip: 20;
+  --z-sticky-header: 90;
+  --z-popup: 100;
+  --z-burger-button: 50;
+  --z-burger: 110;
+}
+
+* {
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+input,
+button {
+  display: inline-block;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: var(--fz-title-section);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  font-family: "Montserrat", "Arial", "Helvetica", sans-serif;
+  font-size: var(--fz-base);
+  color: var(--c-text-regular);
+}
+
+.form-privacy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.form-privacy__checkbox {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 10px;
+  border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  background-color: #828282;
+  cursor: pointer;
+}
+
+.form-privacy__checkbox::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+}
+
+.form-privacy__checkbox-hidden:checked + .form-privacy__checkbox {
+  background-image: url("../img/form/form-check.svg");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+.fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.popups {
+  display: none;
+}
+
+.pop-thanks {
+  border-radius: 12px;
+  padding: 40px 20px;
+  width: 300px;
+  background-color: #fff;
+}
+
+.burger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.burger__line {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.burger--active .burger__line {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.burger--active .burger__line:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.burger--active .burger__line:nth-child(2) {
+  display: none;
+}
+
+.burger--active .burger__line:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin-top: -100%;
+}
+
+.container {
+  padding: 0 15px;
+}
+
+@media (min-width: 575.98px) {
+  .container {
+    max-width: 540px;
+    margin: auto;
+    padding: 0;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 991.98px) {
+  .container {
+    max-width: 960px;
+    padding: 0 calc(100% - (50% + 590px));
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+/*# sourceMappingURL=index.css.map */
