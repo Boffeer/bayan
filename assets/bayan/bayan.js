@@ -3,6 +3,7 @@
  */
 const bayans = [...document.querySelectorAll(".bayan")];
 const bayanOpenedClass = "bayan--opened";
+const bayanHeight = 1000;
 
 function toggleBayan(
   bayanTop,
@@ -14,44 +15,39 @@ function toggleBayan(
     bayanBottom.style.maxHeight = "0";
     bayanTop.parentElement.classList.remove(bayanOpenedClass);
   } else {
-    let heightModifier = 20;
-    if (window.innerWidth < 575) heightModifier = 70;
-
-    bayanBottom.style.maxHeight = `${bayanBottomHeight + heightModifier}px`;
+    bayanBottom.style.maxHeight = `${bayanBottomHeight}px`;
     bayanTop.parentElement.classList.add(bayanOpenedClass);
   }
 }
 
 if (bayans.length > 0) {
   bayans.forEach((bayan, index) => {
-    let currentBayanTop = undefined;
-    let currentBayanBottom = undefined;
+    const bayanChildren = Array.from(bayan.children);
+    let bayanTopContent = bayanChildren[0];
+    let bayanBottomContent = bayanChildren[1];
 
-    const bayanChildren = bayan.children;
-    console.log(bayanChildren);
+    let bayanTop = document.createElement("div");
+    bayanTop.classList.add("bayan__top");
+    bayanTop.appendChild(bayanTopContent);
+    bayan.appendChild(bayanTop);
 
-    currentBayanTop = bayan.querySelector(".bayan__top");
-    currentBayanBottom = bayan.querySelector(".bayan__bottom");
-    const currentBayanBottomHeight = currentBayanBottom.clientHeight;
+    let bayanBottom = document.createElement("div");
+    bayanBottom.classList.add("bayan__bottom");
+    bayanBottom.appendChild(bayanBottomContent);
+    bayan.appendChild(bayanBottom);
 
-    currentBayanTop.addEventListener("click", function () {
-      toggleBayan(
-        currentBayanTop,
-        currentBayanBottom,
-        bayanOpenedClass,
-        currentBayanBottomHeight
-      );
+    function toggleBayanShorthand() {
+      toggleBayan(bayanTop, bayanBottom, bayanOpenedClass, bayanHeight);
+    }
+
+    bayanTop.addEventListener("click", function () {
+      toggleBayanShorthand();
     });
 
     setTimeout(() => {
-      currentBayanTop.click();
+      bayanTop.click();
       if (index > 0) {
-        toggleBayan(
-          currentBayanTop,
-          currentBayanBottom,
-          bayanOpenedClass,
-          currentBayanBottomHeight
-        );
+        toggleBayanShorthand();
       }
     }, 200);
   });

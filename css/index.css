@@ -174,8 +174,8 @@ body {
 }
 
 .burger__line {
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   display: block;
   position: relative;
   width: 100%;
@@ -185,8 +185,8 @@ body {
 }
 
 .burger--active .burger__line {
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .burger--active .burger__line:first-child {
@@ -233,5 +233,12 @@ body {
   .container {
     max-width: 1140px;
   }
+}
+
+.main {
+  max-width: 600px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*# sourceMappingURL=index.css.map */
